@@ -39,6 +39,15 @@ export default class Routes extends Component {
           <Route path="/register" component={Register} />
           <Route path="/auth" component={Auth} />
           <PrivateRoute path="/chat" component={Chat} />
+          <Redirect
+            from="*"
+            to={{
+              pathname: "/",
+              state: {
+                from: this.props.location
+              }
+            }}
+          />
         </Switch>
       </BrowserRouter>
     );
